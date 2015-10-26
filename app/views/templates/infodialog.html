@@ -25,6 +25,6 @@
     <div class="md-actions" layout="row">
       <span flex></span> 
       <md-button ng-click="close()"> Cancelar </md-button>
-      <md-button ng-click="showAdd(user)" class="md-primary">Actualizar</md-button>
+      <md-button ng-controller='UserCtrl' ng-click="showAdd($event,info.index)" class="md-primary">Actualizar</md-button>
    </div>
 </md-dialog>

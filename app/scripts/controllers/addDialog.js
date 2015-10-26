@@ -8,7 +8,9 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-.controller('UserCtrl', function($scope, $mdSidenav,Users,$mdDialog) {
+.controller('UserCtrl', function($scope, Users,$mdDialog) {
+
+  $scope.user =Users.getCurrentUser();
 
   function DialogController($scope, $mdDialog) {
       $scope.hide = function() {
@@ -19,12 +21,10 @@ angular.module('testProjectApp')
       };
   }
 
-    $scope.showAdd = function(ev,user) {
-      $scope.user=user;
+    $scope.showAdd = function(ev,index) {
+      Users.setCurrentUser(index);
       $mdDialog.show({
           controller: DialogController,
-          scope: $scope,
-          preserveScope: true,
           clickOutsideToClose: true, 
           templateUrl: '/views/templates/addDialog.html',
           targetEvent: ev,
@@ -32,7 +32,11 @@ angular.module('testProjectApp')
     };
 
     $scope.saveUser=function(user){
-      Users.addUser(user);
+      if(user.index){
+        Users.updateUser();
+      }else{
+        Users.addUser(user);
+      }
       $scope.hide();
   };
 
