@@ -3,7 +3,7 @@
         <div class="md-toolbar-tools">
             <h2>Informacion de usuario</h2>
             <span flex></span>
-            <md-button ng-click="close()">
+            <md-button aria-label="Close" ng-click="close()">
                 <md-icon class="fa fa-times"></md-icon>
             </md-button>
         </div>
@@ -22,4 +22,9 @@
             <p>{{info.address}}</p>
         </span>
     </div>
+    <div class="md-actions" layout="row">
+      <span flex></span> 
+      <md-button ng-click="close()"> Cancelar </md-button>
+      <md-button ng-click="showAdd(user)" class="md-primary">Actualizar</md-button>
+   </div>
 </md-dialog>
