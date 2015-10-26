@@ -32,6 +32,9 @@ angular.module('testProjectApp')
       },
       getUsersCount: function () {
         return users.length;
+      },
+      addUser: function(value){
+        users.push(value);
       }
     };
   });

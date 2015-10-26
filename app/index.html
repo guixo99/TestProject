@@ -38,7 +38,7 @@
             <md-toolbar layout-padding layout="row" layout-align="start center">
               <h4>Usuarios</h4>
             </md-toolbar>
-              <md-subheader>Usuarios registrados: {{usersCount}}</md-subheader>
+              <md-subheader>Usuarios registrados: {{users.length}}</md-subheader>
               <ul class="contact-list">
                 <li ng-repeat="user in users">
                   <md-button ng-click="openDialogInfo($event, user)">{{user.name}}</md-button>
@@ -53,6 +53,10 @@
       </md-content>
     </div>
 
+
+    <md-button ng-controller="UserCtrl" class="md-fab md-fab-bottom-right md-button md-default-theme" aria-label="Add" ng-click="showAdd($event,{})" tabindex="0">
+            <ng-md-icon icon="add" class="ng-scope"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg></ng-md-icon>
+      </md-button>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -87,6 +91,7 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/infodialog.js"></script>
         <script src="scripts/controllers/contactlist.js"></script>
+        <script src="scripts/controllers/addDialog.js"></script>
         <script src="scripts/services/users.js"></script>
         <!-- endbuild -->
 </body>

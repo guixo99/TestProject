@@ -1,0 +1,15 @@
+<md-dialog aria-label ng-controller="UserCtrl">
+   <md-content class="md-padding">
+   <form name="userForm">
+   <div layout layout-sm="column">
+      <md-input-container flex> <label>Nombre</label> <input ng-model="user.name"> </md-input-container>
+   </div>
+   <md-input-container flex> <label>Direccion</label> <input ng-model="user.address"> </md-input-container>
+   <div layout layout-sm="column">
+   <md-input-container flex> <label>Telefono</label> <input ng-model="user.phone"> </md-input-container>
+   <div class="md-actions" layout="row">
+      <span flex></span> 
+      <md-button ng-click="cancel()"> Cancelar </md-button>
+      <md-button ng-click="saveUser(user)" class="md-primary"> Guardar </md-button>
+   </div>
+</md-dialog>
