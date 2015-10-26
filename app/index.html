@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
   </head>
   <body ng-app="testProjectApp">
     <!--[if lte IE 8]>
@@ -22,27 +23,30 @@
 
     <!-- Add your site or application content here -->
     <div ng-controller="MainCtrl">
-      <md-toolbar class="md-theme-indigo" layout="row">
+      <md-toolbar layout="row">
         <div class="md-toolbar-tools">
           <md-button ng-click="toggleSidenav()" class="md-icon-button">
-            <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+            <md-icon class="fa fa-bars" aria-label="Menu"></md-icon>
           </md-button>
           <h1>Test Project</h1>
         </div>
       </md-toolbar>
 
-      <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-        Hola <br>
-        Hola <br>
-        Hola <br>
-        Hola <br>
-        Hola <br>
-        Hola <br>
-        Hola <br>
-        Hola <br>
-        Hola <br>
-        Hola <br>
-      </md-sidenav>
+      <div ng-controller="ContactListCtrl">
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+          <md-content>
+            <md-toolbar layout-padding layout="row" layout-align="start center">
+              <h4>Usuarios</h4>
+            </md-toolbar>
+              <md-subheader>Usuarios registrados: {{usersCount}}</md-subheader>
+              <ul class="contact-list">
+                <li ng-repeat="user in users">
+                  <md-button ng-click="openDialogInfo($event, user)">{{user.name}}</md-button>
+                </li>
+              </ul>
+          </md-content>
+        </md-sidenav>
+      </div>
 
       <md-content layout-padding flex>
         <div ng-view=""></div>
@@ -73,6 +77,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -80,6 +85,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/infodialog.js"></script>
+        <script src="scripts/controllers/contactlist.js"></script>
+        <script src="scripts/services/users.js"></script>
         <!-- endbuild -->
 </body>
 </html>

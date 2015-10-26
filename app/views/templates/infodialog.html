@@ -1,0 +1,25 @@
+<md-dialog class="info-dialog">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Informacion de usuario</h2>
+            <span flex></span>
+            <md-button ng-click="close()">
+                <md-icon class="fa fa-times"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <div class="md-dialog-content">
+        <span class="info-data">
+            <p>Nombre:</p>
+            <p>{{info.name}}</p>
+        </span>
+        <span class="info-data">
+            <p>Telefono:</p>
+            <p>{{info.phone}}</p>
+        </span>
+        <span class="info-data">
+            <p>Direcci&oacute;n:</p>
+            <p>{{info.address}}</p>
+        </span>
+    </div>
+</md-dialog>
