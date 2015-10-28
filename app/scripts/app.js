@@ -15,24 +15,29 @@ angular
     'ngCookies',
     'ngMessages',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch',
     'ngMaterial'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/list-entries");
+
+    $stateProvider
+      .state('list', {
+        url: "/list-entries",
+        templateUrl: 'views/list-entries.html',
+        controller: 'ListCtrl',
+        resolve: {
+          listEntries: function($http) {
+            return $http.get("data/data.json");
+          }
+        }
       })
-      .when('/about', {
+      .state('about', {
+        url: "/about",
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
   });

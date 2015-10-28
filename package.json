@@ -35,5 +35,9 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "autoprefixer": "~6.0.3",
+    "grunt-autoprefixer": "~3.0.3"
   }
 }
