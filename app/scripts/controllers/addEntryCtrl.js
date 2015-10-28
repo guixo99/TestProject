@@ -14,7 +14,6 @@ angular.module('testProjectApp')
     $scope.saveEntry= function(entry){
       $state.go('list', {'newEntry' : entry});
       $scope.entries.push(entry);
-      console.log($scope.entries.length);
       $scope.entry={};
 
     };
