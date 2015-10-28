@@ -1,0 +1,22 @@
+<md-content layout='column' class='md-whiteframe-z2 move-up widget-entry'>
+   <md-toolbar class="md-toolbar-tools">
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Alta de entradas</h2>
+    </div>
+  </md-toolbar>
+   <form name="userForm" flex="67" flex-sm="33">
+      <md-input-container flex> <label>Nombre</label><input ng-model='entry.name'></md-input-container>
+      <md-input-container flex>
+        <label>Texto</label>
+        <textarea ng-model='entry.text'></textarea>
+      </md-input-container>
+      
+      <md-input-container flex> <label>Usuario</label> <input ng-model='entry.user'> </md-input-container>
+      
+      <md-datepicker class='md-datepicker-input' name="dateField" ng-model='entry.date' md-placeholder="Fecha"></md-datepicker>
+   <div class="md-actions" layout="row">
+      <span flex></span> 
+      <md-button ui-sref="list"> Cancelar </md-button>
+      <md-button ng-click="saveEntry(entry)" class="md-raised md-primary">Guardar</md-button>
+   </div>
+</md-content>
