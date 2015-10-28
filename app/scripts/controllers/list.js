@@ -8,10 +8,18 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-  .controller('ListCtrl', ['$scope', 'listEntries', function ($scope, listEntries) {
-    var listEntries = listEntries.data;
-    listEntries.forEach(function (entry) {
-      entry.date = new Date(entry.date);
-    });
-    $scope.listEntries = listEntries;
+	.controller('ListCtrl', ['$scope', 'listEntries', 'newEntry', 'blogEntries', function ($scope, listEntries,newEntry,blogEntries) {
+    var listEntries_ = listEntries.data;
+    if(newEntry){
+  		blogEntries.addEntry(newEntry);
+  		newEntry={};
+  	}
+  	if(blogEntries.getEntries().length===0){
+    	listEntries_.forEach(function (entry) {
+    		entry.date = new Date(entry.date);
+			blogEntries.addEntry(entry);
+    	});
+    }
+    $scope.listEntries = blogEntries.getEntries();
   }]);
+ 
