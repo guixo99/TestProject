@@ -1,0 +1,5 @@
+<section>
+  <md-card ng-repeat="entry in listEntries">
+    <blog-entry id="{{entry.id}}" name="{{entry.name}}" date="entry.date" text="{{entry.text}}" user="{{entry.user}}" filter="date"></blog-entry>
+  </md-card>
+</section>
