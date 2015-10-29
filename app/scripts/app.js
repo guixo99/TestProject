@@ -20,7 +20,11 @@ angular
     'ngTouch',
     'ngMaterial'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+
+    $mdThemingProvider.theme('default').primaryPalette('teal').accentPalette('red');
+    $mdThemingProvider.theme('altTheme').primaryPalette('red');
+
     $urlRouterProvider.otherwise("/list-entries");
 
     $stateProvider
@@ -39,5 +43,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .state('responsive',{
+      url: '/list-responsive',
+      templateUrl: 'views/list-responsive.html',
+      controller: 'contactListResponsiveCtrl'
       });
   });
