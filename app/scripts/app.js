@@ -32,9 +32,13 @@ angular
         url: "/list-entries",
         templateUrl: 'views/list-entries.html',
         controller: 'ListCtrl',
+        params: {'newEntry':null},
         resolve: {
           listEntries: function($http) {
             return $http.get("data/data.json");
+          },
+          newEntry: function($stateParams) {
+            return $stateParams.newEntry;
           }
         }
       })
@@ -49,4 +53,10 @@ angular
       templateUrl: 'views/list-responsive.html',
       controller: 'contactListResponsiveCtrl'
       });
+      })
+      .state('AddEntry',{
+      url: '/AddEntry',
+      templateUrl:'/views/templates/addEntry.html',
+      controller:'addEntryCtrl'
+    });
   });

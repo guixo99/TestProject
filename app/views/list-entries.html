@@ -2,4 +2,7 @@
   <md-card ng-repeat="entry in listEntries">
     <blog-entry id="{{entry.id}}" name="{{entry.name}}" date="entry.date" text="{{entry.text}}" user="{{entry.user}}" filter="date"></blog-entry>
   </md-card>
+  <md-button class="md-fab md-primary md-hue-2 md-button md-ink-ripple" aria-label="Add" ui-sref="AddEntry" tabindex="0">
+      <ng-md-icon class="fa fa-group"></ng-md-icon>
+    </md-button>
 </section>
