@@ -52,7 +52,6 @@ angular
       url: '/list-responsive',
       templateUrl: 'views/list-responsive.html',
       controller: 'contactListResponsiveCtrl'
-      });
       })
       .state('AddEntry',{
       url: '/AddEntry',
