@@ -18,6 +18,7 @@ angular
     'ui.router',
     'ngSanitize',
     'ngTouch',
+    'md.data.table',
     'ngMaterial'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
@@ -51,7 +52,12 @@ angular
       .state('responsive',{
       url: '/list-responsive',
       templateUrl: 'views/list-responsive.html',
-      controller: 'contactListResponsiveCtrl'
+      controller: 'contactListResponsiveCtrl',
+      resolve: {
+      listEntries: function(dataResponsive){
+          return dataResponsive;
+         }
+        }
       })
       .state('AddEntry',{
       url: '/AddEntry',
