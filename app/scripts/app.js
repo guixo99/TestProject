@@ -33,7 +33,12 @@ angular
         url: "/list-entries",
         templateUrl: 'views/list-entries.html',
         controller: 'ListCtrl',
-        resolve: 'blogEntries'
+        resolve: {
+          entries:function(blogEntries){
+
+             return blogEntries.getData();
+          }
+        }
       })
       .state('about', {
         url: "/about",

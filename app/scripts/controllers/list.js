@@ -8,7 +8,8 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-	.controller('ListCtrl', ['$scope', 'listEntries', 'blogEntries', function ($scope, listEntries,blogEntries) {
-    $scope.listEntries = blogEntries.getEntries();
+	.controller('ListCtrl', ['$scope', 'entries', function ($scope, entries) {
+		console.log(entries);
+        $scope.listEntries = entries;
   }]);
  

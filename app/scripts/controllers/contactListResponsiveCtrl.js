@@ -24,7 +24,7 @@ angular.module('testProjectApp')
        };
 
        $scope.onOrderChange = function (order) {
-
+          console.log(order);
        };
 
        $scope.onPaginationChange = function (page, limit) {

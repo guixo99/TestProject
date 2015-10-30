@@ -8,9 +8,10 @@
  * Factory in the testProjectApp.
  */
 angular.module('testProjectApp')
-  .factory('dataResponsive', function ($http, $log) {
+  .factory('dataResponsive', function ($http) {
+    //.factory('dataResponsive', function ($http, $log) {
 
-       var elements = {};
+//       var elements = {};
 
        var myService = {
          getData: function() {
@@ -25,8 +26,9 @@ angular.module('testProjectApp')
 
           var promise = $http.get('../data/dataResponsive.json').then(function (response) {
             angular.forEach(response.data, function (element, index) {
-                if( index >= n)
+                if( index >= n){
                   rs.push(element);
+                }
             });
             return rs;
           });
