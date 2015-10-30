@@ -18,6 +18,7 @@ angular
     'ui.router',
     'ngSanitize',
     'ngTouch',
+    'md.data.table',
     'ngMaterial'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
@@ -50,4 +51,6 @@ angular
       templateUrl:'/views/templates/addEntry.html',
       controller:'addEntryCtrl'
     });
-  });
+  }).constant('_',
+      window._
+  );
