@@ -20,15 +20,10 @@ angular.module('testProjectApp')
            return promise;
          },
          getDatas: function(page, limit){
-          var n = (page-1)*limit,
-              rs = [];
+          var n = (page-1)*limit;
 
           var promise = $http.get('../data/dataResponsive.json').then(function (response) {
-            angular.forEach(response.data, function (element, index) {
-                if( index >= n)
-                  rs.push(element);
-            });
-            return rs;
+            return _.slice(response.data, n, n+limit);
           });
           return promise;
          }

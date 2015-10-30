@@ -52,13 +52,16 @@ angular
       .state('responsive',{
       url: '/list-responsive',
       templateUrl: 'views/list-responsive.html',
-      controller: 'contactListResponsiveCtrl'
+      controller: 'contactListResponsiveCtrl',
+      resolve: {
+      listEntries: function(dataResponsive){
+          return dataResponsive;
+         }
+        }
       })
       .state('AddEntry',{
       url: '/AddEntry',
       templateUrl:'/views/templates/addEntry.html',
       controller:'addEntryCtrl'
     });
-  }).constant('_',
-      window._
-  );
+  });
