@@ -46,7 +46,7 @@ angular.module('testProjectApp')
                     "age": 32,
                     "address": "Heriberto Frias 48",
                     "phone": "1234567890"
-                }]
+                }];
 
 
     var getData = function() {

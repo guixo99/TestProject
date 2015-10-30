@@ -32,15 +32,7 @@ angular
         url: "/list-entries",
         templateUrl: 'views/list-entries.html',
         controller: 'ListCtrl',
-        params: {'newEntry':null},
-        resolve: {
-          listEntries: function($http) {
-            return $http.get("data/data.json");
-          },
-          newEntry: function($stateParams) {
-            return $stateParams.newEntry;
-          }
-        }
+        resolve: 'blogEntries'
       })
       .state('about', {
         url: "/about",

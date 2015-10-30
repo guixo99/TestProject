@@ -8,12 +8,20 @@
  * Factory in the testProjectApp.
  */
 angular.module('testProjectApp')
-  .factory('blogEntries', function () {
-    
-    var entries=[];
-
-    // Public API here
-    return {
+  .factory('blogEntries', ['$http',function ($http) {
+    /*var entries=[];
+    var promise = $http.get("data/data.json").success(function(response){
+      response.forEach(function (entry) {
+        entry.date = new Date(entry.date);
+        entries.push(entry);
+      });
+    }); 
+      
+    var blogEntries=
+    {
+      fill : function(){
+        return promise;
+      },
       getEntries: function(){
         return entries;
       },
@@ -21,4 +29,12 @@ angular.module('testProjectApp')
         entries.push(entry);
       }
     };
-  });
+    // Public API here
+    return  blogEntries;*/
+
+    return {
+      promise : function(){
+        return $http.get("data/data.json");
+      }
+    };
+  }]);

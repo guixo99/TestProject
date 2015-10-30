@@ -8,13 +8,9 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-  .controller('addEntryCtrl', function ($scope,$state) {
-    $scope.entry={};
-    $scope.entries=[];
+  .controller('addEntryCtrl', ['$scope','$state','blogEntries',function ($scope,$state,blogEntries) {
     $scope.saveEntry= function(entry){
+      blogEntries.addEntry(entry);
       $state.go('list', {'newEntry' : entry});
-      $scope.entries.push(entry);
-      $scope.entry={};
-
     };
-  });
+  }]);
