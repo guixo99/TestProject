@@ -40,6 +40,8 @@
   },
   "dependencies": {
     "autoprefixer": "~6.0.3",
-    "grunt-autoprefixer": "~3.0.3"
+    "grunt-autoprefixer": "~3.0.3",
+    "protractor": "~2.5.1",
+    "jasmine-data-provider": "~2.1.0"
   }
 }
