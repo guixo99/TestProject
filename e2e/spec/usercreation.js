@@ -7,7 +7,7 @@ describe('Protractor Demo Over Demo App', function(){
 
 
     beforeEach(function() {
-        browser.get('http://localhost:9000/#/');
+        browser.get('/');
     });
 
     it('it should open the sidenav', function() {
