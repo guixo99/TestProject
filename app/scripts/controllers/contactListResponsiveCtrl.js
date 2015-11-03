@@ -17,6 +17,7 @@ angular.module('testProjectApp')
       page: 1
     };
 
+
     listEntries.getData().then(function(data)
     {
       $scope.query.total = data.length;
