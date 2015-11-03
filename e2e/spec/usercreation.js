@@ -10,16 +10,15 @@ describe('Protractor Demo Over Demo App', function(){
         browser.get('/');
     });
 
-    it('it should open the sidenav', function() {
-        sideNavButton.click();
-        expect(sideNav.isDisplayed()).toBe(true);
-    });
-
     using([{n: 1},{n: 2}], function (data) {
+        it('it should open the sidenav', function() {
+            sideNavButton.click();
+            expect(sideNav.isDisplayed()).toBe(true);
+        });
+
         it('it should open a user dialog', function () {
             expect(contactList.count()).toBeGreaterThan(0);
 
-            sideNavButton.click();
             ($('.contact-list li:nth-child(' + data.n + ') button')).click();
             browser.sleep(1000);
 
