@@ -1,8 +1,8 @@
-<article layout-padding>
+<article layout-padding ng-click="">
   <div layout="row" layout-align="space-between center">
     <h2>{{name}}</h2>
     <h5>{{date | date}}</h5>
   </div>
   <h4>{{user}}</h4>
-  <p>{{text}}</p>
+  <p>{{text | limitTo: 200}}...</p>
 </article>
