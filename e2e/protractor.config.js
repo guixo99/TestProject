@@ -21,7 +21,7 @@ exports.config = {
     //
     // A base URL for your application under test. Calls to protractor.get()
     // with relative paths will be prepended with this.
-    baseUrl: 'http://localhost:9876/#/',
+    baseUrl: 'http://localhost:9000/#/',
 
     onPrepare: function() {
         // At this point, global variable 'protractor' object will be set up, and

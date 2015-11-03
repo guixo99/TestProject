@@ -22,7 +22,6 @@ angular
     'ngMaterial'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
-
     $mdThemingProvider.theme('default').primaryPalette('teal').accentPalette('red');
     $mdThemingProvider.theme('altTheme').primaryPalette('red');
 
@@ -48,12 +47,12 @@ angular
       })
       .state('responsive',{
       url: '/list-responsive',
-      templateUrl: 'views/list-responsive.html',
+      templateUrl: 'views/contact-list-responsive.html',
       controller: 'contactListResponsiveCtrl',
       resolve: {
       listEntries: function(dataResponsive){
           return dataResponsive;
-         }
+          }
         }
       })
       .state('AddEntry',{
