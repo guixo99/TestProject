@@ -8,8 +8,9 @@
  * Factory in the testProjectApp.
  */
 angular.module('testProjectApp')
-  .factory('Users', function ($q) {
-  var deferred = $q.defer();
+  .factory('Users', function () {
+//  var deferred = $q.defer();
+
     var users = [
       {
         index:0,

@@ -1,5 +1,5 @@
 'use strict';
-
+(function() {
 /**
  * @ngdoc function
  * @name testProjectApp.controller:ContactlistCtrl
@@ -32,3 +32,4 @@ angular.module('testProjectApp')
       });
     };
   });
+})();
