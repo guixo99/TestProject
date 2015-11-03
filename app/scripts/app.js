@@ -51,12 +51,12 @@ angular
       })
       .state('responsive',{
       url: '/list-responsive',
-      templateUrl: 'views/list-responsive.html',
+      templateUrl: 'views/contact-list-responsive.html',
       controller: 'contactListResponsiveCtrl',
       resolve: {
       listEntries: function(dataResponsive){
           return dataResponsive;
-         }
+          }
         }
       })
       .state('AddEntry',{
