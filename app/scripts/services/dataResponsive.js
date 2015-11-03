@@ -25,4 +25,4 @@ angular.module('testProjectApp').factory('dataResponsive', function ($http, $log
   }
 };
   return myService;
-})
+});

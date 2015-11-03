@@ -19,9 +19,9 @@ module.exports = function(config) {
       "jasmine"
     ],
 
-	preprocessors: {
-	  'app/scripts/**/*.js': 'coverage'
-	},
+  preprocessors: {
+    'app/scripts/**/*.js': 'coverage'
+  },
 
     // list of files / patterns to load in the browser
     files: [
@@ -39,7 +39,6 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/lodash/lodash.js',
       'bower_components/angular-material-data-table/dist/md-data-table.min.js',
-      'bower_components/underscore/underscore.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
@@ -71,17 +70,17 @@ module.exports = function(config) {
       "karma-chrome-launcher",
       "karma-phantomjs-launcher",
       "karma-jasmine",
-	  "karma-coverage"
+    "karma-coverage"
     ],
 
     reporters: [
-		'coverage'
-	],
+    'coverage'
+  ],
 
-	coverageReporter: {
-	  type : 'html',
-	  dir : 'coverage/'
-	},
+  coverageReporter: {
+    type : 'html',
+    dir : 'coverage/'
+  },
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
