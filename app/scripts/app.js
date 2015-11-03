@@ -22,7 +22,6 @@ angular
     'ngMaterial'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
-
     $mdThemingProvider.theme('default').primaryPalette('teal').accentPalette('red');
     $mdThemingProvider.theme('altTheme').primaryPalette('red');
 
