@@ -1,5 +1,5 @@
 'use strict';
-
+(function() {
 /**
  * @ngdoc function
  * @name testProjectApp.controller:ListCtrl
@@ -12,4 +12,4 @@ angular.module('testProjectApp')
 		console.log(entries);
         $scope.listEntries = entries;
   }]);
- 
+ })();

@@ -1,5 +1,5 @@
 'use strict';
-
+(function() {
 /**
  * @ngdoc function
  * @name testProjectApp.controller:InfoDialogCtrl
@@ -15,3 +15,4 @@ angular.module('testProjectApp')
         $mdDialog.hide();
       };
   });
+})();
