@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Controller: contactListResponsive.contactListResponsive', function () {
 
     // load the controller's module

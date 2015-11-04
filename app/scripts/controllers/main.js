@@ -1,5 +1,5 @@
 'use strict';
-
+(function() {
 /**
  * @ngdoc function
  * @name testProjectApp.controller:MainCtrl
@@ -14,3 +14,4 @@ angular.module('testProjectApp')
             .toggle();
       };
   });
+})();

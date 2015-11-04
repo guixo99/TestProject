@@ -1,5 +1,5 @@
 'use strict';
-
+(function() {
 /**
  * @ngdoc function
  * @name testProjectApp.controller:UserCtrl
@@ -41,3 +41,4 @@ angular.module('testProjectApp')
   };
 
 });
+})();
