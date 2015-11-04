@@ -8,7 +8,7 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-  .controller('ContactListCtrl', function ($scope, Users, $mdSidenav, $mdDialog) {
+  .controller('ContactListCtrl', ['$scope', 'Users', '$mdSidenav', '$mdDialog', function ($scope, Users, $mdSidenav, $mdDialog) {
     $scope.users = Users.getUsers();
     $scope.usersCount = Users.getUsersCount();
 
@@ -31,5 +31,5 @@ angular.module('testProjectApp')
         }
       });
     };
-  });
+  }]);
 })();

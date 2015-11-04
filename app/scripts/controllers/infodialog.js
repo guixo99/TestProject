@@ -8,11 +8,11 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-  .controller('InfoDialogCtrl', function ($scope, $mdDialog, info) {
+  .controller('InfoDialogCtrl', ['$scope', '$mdDialog', 'info', function ($scope, $mdDialog, info) {
       $scope.info = info;
 
       $scope.close = function () {
         $mdDialog.hide();
       };
-  });
+  }]);
 })();
