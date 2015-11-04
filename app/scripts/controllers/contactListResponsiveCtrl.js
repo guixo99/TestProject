@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 /**
  * @name contactListResponsive
@@ -45,3 +46,4 @@ angular.module('testProjectApp')
     })();
     $scope.colorTiles = this.colorTiles;
 }]);
+})();

@@ -1,5 +1,5 @@
-'use strict';
 (function() {
+'use strict';
 /**
  * @ngdoc function
  * @name testProjectApp.controller:AboutCtrl
