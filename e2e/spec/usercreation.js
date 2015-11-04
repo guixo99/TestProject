@@ -1,16 +1,19 @@
 var using = require('jasmine-data-provider');
+var converter = require('../miscellaneous/test-data-converter.js');
 
-describe('Protractor Demo Over Demo App', function(){
+
+describe('Protactor Demo', function () {
+    browser.get('/');
+
+    var jsonData = converter('/home/g.xocotzin/Projects/TestProject/e2e/testfiles/users.csv');
+
     var sideNavButton = $$('#sideNavButton');
     var sideNav = $('.md-sidenav-left');
     var contactList = $$('.contact-list li');
 
+    using(jsonData, function (data) {
+        var dialogButtons;
 
-    beforeEach(function() {
-        browser.get('/');
-    });
-
-    using([{n: 1},{n: 2}], function (data) {
         it('it should open the sidenav', function() {
             sideNavButton.click();
             expect(sideNav.isDisplayed()).toBe(true);
@@ -19,10 +22,12 @@ describe('Protractor Demo Over Demo App', function(){
         it('it should open a user dialog', function () {
             expect(contactList.count()).toBeGreaterThan(0);
 
-            ($('.contact-list li:nth-child(' + data.n + ') button')).click();
-            browser.sleep(1000);
+            ($('.contact-list li:nth-child(' + data.n + ') button')).click().then(function () {
+                expect(element(by.css('.info-dialog')).isPresent()).toBe(true);
+            });
 
-            expect(element(by.css('.info-dialog')).isPresent()).toBe(true);
+            dialogButtons = $$('.info-dialog .md-actions .md-button');
+            dialogButtons.get(0).click();
         });
     });
 });

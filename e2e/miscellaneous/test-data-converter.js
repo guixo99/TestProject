@@ -1,19 +1,21 @@
 (function () {
-    return function (jobreference) {
-        var Converter=require("csvtojson").Converter;
-        var fs=require("fs");
-        var csvFileName="TESTJOB.csv";
-        var fileStream=fs.createReadStream(csvFileName);
-
-        //new converter instance
-        var param={};
-        var csvConverter=new Converter(param);
-        var d = protractor.promise.defer();
-        csvConverter.on("end_parsed",function(jsonObj){
-            console.log(jsonObj);
+    function Converter(csvFileName) {
+        var fs = require('fs');
+        var csvString = fs.readFileSync(csvFileName, 'utf-8');
+        var lines = csvString.split('\n');
+        var headers = lines.splice(0, 1);
+        var data = [];
+        headers = headers[0].split(',');
+        lines.forEach(function(line) {
+            var obj = {};
+            line.split(',').forEach(function (val, index) {
+                obj[headers[index]] = val;
+            });
+            data.push(obj);
         });
-        //d.reject("fail!!!!");
-        fileStream.pipe(csvConverter);
-        return d.promise;
+
+        return data;
     }
+
+    module.exports = Converter;
 }());
