@@ -8,7 +8,7 @@
  * Controller of the testProjectApp
  */
 angular.module('testProjectApp')
-.controller('UserCtrl', function($scope, Users,$mdDialog) {
+.controller('UserCtrl', ['$scope', 'Users','$mdDialog',function($scope, Users,$mdDialog) {
 
   $scope.user =Users.getCurrentUser();
 
@@ -40,5 +40,5 @@ angular.module('testProjectApp')
       $scope.hide();
   };
 
-});
+}]);
 })();
