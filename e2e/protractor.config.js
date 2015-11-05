@@ -1,47 +1,53 @@
-exports.config = {
+(function (){
+    var path = require('path');
+    var cwd = 'e2e';
 
-    firefoxPath: '/opt/firefox/firefox',
+    exports.config = {
 
-    // Spec patterns are relative to the location of this config.
-    specs: [
-        'spec/*.js'
-    ],
+        firefoxPath: '/opt/firefox/firefox',
 
-    multiCapabilities: [{
-        'browserName': 'firefox'
-    }, {
-        'browserName': 'chrome'
-    }],
+        // Spec patterns are relative to the location of this config.
+        specs: [
+            'spec/*.js'
+        ],
 
-    maxSessions: 1,
+        multiCapabilities: [{
+                'browserName': 'firefox'
+            }],
 
-    // ---------------------------------------------------------------------------
-    // ----- Global test information ---------------------------------------------
-    // ---------------------------------------------------------------------------
-    //
-    // A base URL for your application under test. Calls to protractor.get()
-    // with relative paths will be prepended with this.
-    baseUrl: 'http://localhost:9000/#/',
+        maxSessions: 1,
 
-    onPrepare: function() {
-        // At this point, global variable 'protractor' object will be set up, and
-        // globals from the test framework will be available. For example, if you
-        // are using Jasmine, you can add a reporter with:
-        //     jasmine.getEnv().addReporter(new jasmine.JUnitXmlReporter(
-        //         'outputdir/', true, true));
+        // ---------------------------------------------------------------------------
+        // ----- Global test information ---------------------------------------------
+        // ---------------------------------------------------------------------------
         //
-        // If you need access back to the current configuration object,
-        // use a pattern like the following:
-        //     browser.getProcessedConfig().then(function(config) {
-        //       // config.capabilities is the CURRENT capability being run, if
-        //       // you are using multiCapabilities.
-        //       console.log('Executing capability', config.capabilities);
-        //     });
-    },
+        // A base URL for your application under test. Calls to protractor.get()
+        // with relative paths will be prepended with this.
+        baseUrl: 'http://localhost:9000/#/',
 
-    framework: 'jasmine2',
+        params: {
+            filesTest: path.resolve('', cwd, 'testfiles/') + path.sep
+        },
 
-    jasmineNodeOpts: {
-        defaultTimeoutInterval: 30000
-    }
-};
+        onPrepare: function() {
+            'use strict';
+
+            var baseUrl = path.resolve('', cwd, 'reports') + path.sep;
+            var nameReport = 'userCreation';
+
+            require('jasmine-reporters');
+            var Reporter = require(path.resolve('', cwd, 'miscellaneous/e2e-reporter.js'));
+            browser.getCapabilities().then(function (cap) {
+                browser.browserName = cap.caps_.browserName;
+                jasmine.getEnv().addReporter(new Reporter(baseUrl, nameReport));
+            });
+
+        },
+
+        framework: 'jasmine2',
+
+        jasmineNodeOpts: {
+            defaultTimeoutInterval: 30000
+        }
+    };
+}());

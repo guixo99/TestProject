@@ -5,7 +5,8 @@ var converter = require('../miscellaneous/test-data-converter.js');
 describe('Protactor Demo', function () {
     browser.get('/');
 
-    var jsonData = converter('/home/g.xocotzin/Projects/TestProject/e2e/testfiles/users.csv');
+    var jsonData = converter(browser.params.filesTest + 'users.csv');
+    jasmine.testData = jsonData;
 
     var sideNavButton = $$('#sideNavButton');
     var sideNav = $('.md-sidenav-left');
