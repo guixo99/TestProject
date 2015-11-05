@@ -1,6 +1,6 @@
 (function (){
     var path = require('path');
-    var cwd = 'e2e';
+    var cwd = __dirname;
 
     exports.config = {
 
@@ -13,7 +13,8 @@
 
         multiCapabilities: [{
                 'browserName': 'firefox'
-            }],
+            }
+        ],
 
         maxSessions: 1,
 
@@ -23,7 +24,7 @@
         //
         // A base URL for your application under test. Calls to protractor.get()
         // with relative paths will be prepended with this.
-        baseUrl: 'http://localhost:9000/#/',
+        baseUrl: 'http://localhost:9000/',
 
         params: {
             filesTest: path.resolve('', cwd, 'testfiles/') + path.sep
@@ -35,13 +36,11 @@
             var baseUrl = path.resolve('', cwd, 'reports') + path.sep;
             var nameReport = 'userCreation';
 
+            jasmine.testData = [];
+
             require('jasmine-reporters');
             var Reporter = require(path.resolve('', cwd, 'miscellaneous/e2e-reporter.js'));
-            browser.getCapabilities().then(function (cap) {
-                browser.browserName = cap.caps_.browserName;
-                jasmine.getEnv().addReporter(new Reporter(baseUrl, nameReport));
-            });
-
+            jasmine.getEnv().addReporter(new Reporter(baseUrl, nameReport));
         },
 
         framework: 'jasmine2',
