@@ -4,7 +4,11 @@
 
     exports.config = {
 
+        // In windows this property isn't necessary, so can be commented
         firefoxPath: '/opt/firefox/firefox',
+
+        //In windows this property must be set whit the path of the IEDriver downloaded manually or by the webdriver-manager
+        seleniumArgs: ['-Dwebdriver.ie.driver=' + path.resolve('', '../node_modules/protractor/selenium/IEDriverServer.exe')],
 
         // Spec patterns are relative to the location of this config.
         specs: [
