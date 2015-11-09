@@ -5,9 +5,11 @@
         var lines = csvString.split('\n');
         var headers = lines.splice(0, 1);
         var data = [];
-        headers = headers[0].split(',');
+        headers = headers[0].replace(/\r?\n|\r/g, '');
+        headers = headers.split(',');
         lines.forEach(function(line) {
             var obj = {};
+            line = line.replace(/\r?\n|\r/g, '');
             line.split(',').forEach(function (val, index) {
                 obj[headers[index]] = val;
             });

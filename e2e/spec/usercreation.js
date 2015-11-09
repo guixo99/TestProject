@@ -26,4 +26,8 @@ describe('Protactor Demo', function () {
             dialogButtons.get(0).click();
         });
     });
+
+    afterAll(function () {
+        browser.sleep(1000);
+    });
 });
