@@ -5,7 +5,7 @@
         var fs = require('fs');
         var path = require('path');
 
-        this.outFile = path.resolve(baseUrlOut, filename + ' - ' + (new Date()).toLocaleString() + '.html');
+        this.outFile = path.resolve(baseUrlOut, filename + ' - ' + (new Date()).toLocaleString().slice(0, 24).replace(/:/g,"-") + '.html');
         this.totalSpecs = 0;
 
         this.jasmineStarted = function(suiteInfo) {
