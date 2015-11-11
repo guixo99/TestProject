@@ -1,11 +1,13 @@
 (function (){
     var path = require('path');
+    var os = require('os');
     var cwd = __dirname;
 
-    exports.config = {
+    // The path of firefox would be different. In this case must manually indicated
+    var foxPath = os.platform() === 'win32' ? null : '/opt/firefox/firefox';
 
-        // In windows this property isn't necessary, so can be commented
-        firefoxPath: '/opt/firefox/firefox',
+    exports.config = {
+        firefoxPath: foxPath,
 
         //In windows this property must be set whit the path of the IEDriver downloaded manually or by the webdriver-manager
         seleniumArgs: ['-Dwebdriver.ie.driver=' + path.resolve('', '../node_modules/protractor/selenium/IEDriverServer.exe')],

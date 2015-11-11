@@ -1,12 +1,14 @@
 (function () {
+    var fs = require('fs');
+    var _ = require('lodash');
+
     function Converter(csvFileName) {
-        var fs = require('fs');
         var csvString = fs.readFileSync(csvFileName, 'utf-8');
         var lines = csvString.split('\n');
-        var headers = lines.splice(0, 1);
         var data = [];
-        headers = headers[0].replace(/\r?\n|\r/g, '');
-        headers = headers.split(',');
+        var headers = getHeaders(lines);
+        lines = _.slice(lines, 1);
+
         lines.forEach(function(line) {
             var obj = {};
             line = line.replace(/\r?\n|\r/g, '');
@@ -17,6 +19,11 @@
         });
 
         return data;
+    }
+
+    function getHeaders(lines) {
+        // RegExp: "/\r?\n|\r/g" - Find end line characters and replace by empty string. (Windows compatibility)
+        return _.first(lines).replace(/\r?\n|\r/g, '').split(',');
     }
 
     module.exports = Converter;

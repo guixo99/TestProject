@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Report of e2e test </title>
+    </head>
+    <body>
+        <h1>Running suite with <%= totalSpecs %></h1>
+        <% suites.forEach(function (suit) { %>
+            <h2>Suite started: <%= suit.description %> whose full description is: <%= suit.fullName %></h2>
+
+            <% suit.specs.forEach(function (spec) { %>
+                <h3>Spec started: <%= spec.description %></h3>
+                <p>Spec was <%= spec.status %></p>
+
+                <% spec.failedExpectations.forEach(function (failedExpectation) { %>
+                    <p>Failure: <%= failedExpectation.message %></p>
+                <% }); %>
+
+                <% if(spec.failedExpectations.length) { %>
+                    <p> Test data: </p>
+                    <p>
+                        <%
+                            var objectKeys = Object.keys(spec.info);
+
+                            objectKeys.forEach(function(key) { %>
+                                <%= key %>: <%= spec.info[key] %> <br/>
+                            <% });
+                        %>
+                    </p>
+                    <img src="data:image/png;base64,<%= spec.screenshoot %>">
+                <% } %>
+            <% }); %>
+            <p>Suite was <%= suit.status %></p>
+        <% }); %>
+        <h1>Finished suite</h1>
+    </body>
+</html>
