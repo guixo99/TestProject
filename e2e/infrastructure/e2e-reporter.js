@@ -3,13 +3,14 @@
   var fs = require('fs');
 
   var errors = 0;
-  var template = fs.readFileSync('e2e/infrastructure/templateReport.html', 'utf-8');
+  var template = fs.readFileSync('e2e/infrastructure/report-template.html', 'utf-8');
   var report = _.template(template);
 
   module.exports = function(baseUrlOut, filename) {
     var fs = require('fs');
     var path = require('path');
-    var outFile = path.resolve(baseUrlOut, filename + ' - ' + (new Date()).toLocaleString().slice(0, 24).replace(/:/g,"-") + '.html');
+    var dateCreation = (new Date()).toLocaleString().slice(0, 24).replace(/:/g,"-").replace(/,/g,"");
+    var outFile = path.resolve(baseUrlOut, filename + ' - ' + dateCreation + '.html');
     var data = {};
     var currentSuite;
     var currentSpec;
