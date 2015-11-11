@@ -45,7 +45,7 @@
             jasmine.testData = [];
 
             require('jasmine-reporters');
-            var Reporter = require(path.resolve('', cwd, 'miscellaneous/e2e-reporter.js'));
+            var Reporter = require(path.resolve('', cwd, 'infrastructure/e2e-reporter.js'));
             jasmine.getEnv().addReporter(new Reporter(baseUrl, nameReport));
         },
 

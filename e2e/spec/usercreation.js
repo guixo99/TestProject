@@ -1,5 +1,5 @@
 var using = require('jasmine-data-provider');
-var converter = require('../miscellaneous/test-data-converter.js');
+var converter = require('../infrastructure/test-data-converter.js');
 
 
 describe('Protactor Demo', function () {
