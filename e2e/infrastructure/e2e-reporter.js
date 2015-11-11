@@ -9,8 +9,9 @@
   module.exports = function(baseUrlOut, filename) {
     var fs = require('fs');
     var path = require('path');
-    var dateCreation = (new Date()).toLocaleString().slice(0, 24).replace(/:/g,"-").replace(/,/g,"");
-    var outFile = path.resolve(baseUrlOut, filename + ' - ' + dateCreation + '.html');
+    var now = new Date();
+    var dateCreation = [now.getDate() ,now.getMonth(), now.getFullYear(), 'H', now.getHours(), now.getMinutes(), now.getSeconds()];
+    var outFile = path.resolve(baseUrlOut, filename + '-' + dateCreation.join('-') + '.html');
     var data = {};
     var currentSuite;
     var currentSpec;
